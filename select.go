@@ -16,7 +16,7 @@ func main() {
 		chan2 <- "learning concurrency in GO"
 	} ()
 
-
+	// block until it receives message from a channel
 	// if multiple at sametime then selects at random
 	select {
 		case msgFromChan1 := <- chan1:
