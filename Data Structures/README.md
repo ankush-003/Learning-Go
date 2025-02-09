@@ -12,6 +12,63 @@ fmt.Println(*p) // by doing *p we are dereferencing the pointer
 
 ## Hash Table
 
+- Chaining for collision resolution using linked list
+
+```go
+type Bucket[K comparable, V any] struct {
+    head *BucketNode[K, V]  // Linked list head
+}
+
+type BucketNode[K comparable, V any] struct {
+    key K
+    value V
+    next *BucketNode[K, V]  // Next node in chain
+}
+```
+
+- Generic types for flexibility
+Standard hash table operations
+Modern Go features like generics and the maphash package
+
+### Understanding the Bitwise Operation in Hash Function
+
+The hash function uses a bitwise AND operation (&) to calculate the bucket index. Here's a detailed explanation:
+
+How It Works
+Size Power of 2
+
+Hash table size is typically a power of 2 (e.g., 16, 32, 64)
+When we subtract 1 from a power of 2, we get a number with all bits set to 1 up to that position
+Example for size 16:
+
+> Bitwise AND Operation
+
+The & operator performs a bitwise AND between:
+The hash value (a large uint64 number)
+(size-1) converted to uint64
+Example:
+
+```
+16     = 0001 0000
+16 - 1 = 0000 1111
+```
+
+```
+hashValue   = 1101 1100 1011 0110
+size-1      = 0000 0000 0000 1111
+result      = 0000 0000 0000 0110 (6)
+```
+
+
+Benefits
+Fast Operation: Bitwise operations are very efficient
+Even Distribution: Ensures index is always within array bounds
+Modulo Alternative: Equivalent to hashValue % size when size is power of 2, but faster
+```
+Bitwise AND: ~1 CPU cycle
+Modulus: ~10-20 CPU cycles
+```
+
 
 ## References
 

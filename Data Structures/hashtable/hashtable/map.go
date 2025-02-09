@@ -24,7 +24,7 @@ func NewHashTable[K comparable, V any](opts ...HashTableOption[K, V]) *HashTable
 	ht := &HashTable[K, V]{
 		buckets: make([]*Bucket[K, V], 16), // default size
 		size: 16,
-		seed: maphash.MakeSeed(),
+			seed: maphash.MakeSeed(),
 	}
 
 	for _, opt := range opts {
