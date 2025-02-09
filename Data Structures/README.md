@@ -69,6 +69,18 @@ Bitwise AND: ~1 CPU cycle
 Modulus: ~10-20 CPU cycles
 ```
 
+# Stack & Queue
+
+We can use slices to implement stacks and queues.
+
+## Stacks
+for stacks appending to the slice is the same as pushing to the stack
+for pops we can use the built-in function `len` to get the length of the slice and then use `len-1` to get the last element of the slice
+> and update the slice by slicing it from the beginning to the end - 1
+
+## Queues
+for queues we can use the built-in function `len` to get the length of the slice and then use `len-1` to get the last element of the slice
+> and update the slice by slicing it from beginning + 1 to the end
 
 ## References
 
