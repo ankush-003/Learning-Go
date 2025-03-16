@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+func RemoveAtIndex(s []int, index int) []int {
+	return append(s[:index], s[index+1:]...)
+}
+
 func main() {
 	// var ages [3]int = [3]int{20, 25, 30} // fixed lenth
 	var ages = [3]int {20, 25, 30} // Go infers the type automatically
@@ -25,4 +29,7 @@ func main() {
 	fmt.Println("name ranges:", rangeOne, rangeTwo, rangeThree)
 	rangeOne = append(rangeOne, "test")
 	fmt.Println(rangeOne)
+
+	// removing without changing order
+	fmt.Println(RemoveAtIndex(scores, 1))
 }
