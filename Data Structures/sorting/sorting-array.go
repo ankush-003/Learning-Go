@@ -50,4 +50,7 @@ func main() {
 	SortArray(CreateArray(size), algos.MergeSortParallelV2, "Merge Sort Parallel V2", false)
 	SortArray(CreateArray(size), algos.MergeSortParallelV3, "Merge Sort Parallel V3", false)
 	SortArray(CreateArray(size), algos.MergeSortIterative, "Merge Sort Iterative", false)
+	SortArray(CreateArray(size), algos.QuickSort, "Quick Sort", false)
+	SortArray(CreateArray(size), algos.QuickSortParallel, "Quick Sort Parallel", false)
+	SortArray(CreateArray(size), algos.QuickV2, "Quick Sort Hoare", false)	
 }
